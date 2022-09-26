@@ -16,6 +16,10 @@ func main() {
 	var large = [10000000]string{"nemo"}
 
 	findNemo(large) // 0(n) --> Linear Time
+
+	var boxes = []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+
+	logFirstTwoBoxes(boxes) // 0(2) --> Constant Time
 }
 
 func findNemo(array [10000000]string) {
@@ -24,4 +28,9 @@ func findNemo(array [10000000]string) {
 			fmt.Println("Found NEMO!")
 		}
 	}
+}
+
+func logFirstTwoBoxes(boxes []int) {
+	fmt.Println(boxes[0])
+	fmt.Println(boxes[1])
 }

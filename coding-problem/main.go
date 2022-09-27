@@ -20,6 +20,7 @@ func main() {
 	var array2 = []string{"z", "y", "x"}
 
 	fmt.Println(containsCommonItem(array1, array2))
+	fmt.Println(containsCommonItem2(array1, array2))
 }
 
 func containsCommonItem(arr1 []string, arr2 []string) bool {
@@ -31,4 +32,24 @@ func containsCommonItem(arr1 []string, arr2 []string) bool {
 		}
 	}
 	return false
-}
+} // O(a*b)
+
+func containsCommonItem2(arr1 []string, arr2 []string) bool {
+	// loop through first array and create object where properties === items in the array
+	m := make(map[string]bool)
+	for i := 0; i < len(arr1); i++ {
+		if !m[arr1[i]] {
+			item := arr1[i]
+			m[item] = true
+		}
+	}
+
+	// loopo through second array and check if item in second array exists on created object
+	for j := 0; j < len(arr2); j++ {
+		if m[arr2[j]] {
+			return true
+		}
+	}
+
+	return false
+} // O(a+b)
